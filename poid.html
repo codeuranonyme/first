@@ -1,0 +1,451 @@
+<meta charset='utf-8'>
+<link rel="stylesheet" type="text/css" href="poid.css" />
+<title id='poid'> POIREETgym </title>
+<div id='title'><div><h1 id='titre'> POIRE<span>gym</span></h1></div>
+<div> <button id='bout' onclick='resp()'><img src='https://image.noelshack.com/fichiers/2020/29/5/1595000863-b781bca6-7945-4e89-8cef-2017e8ced105.jpeg'></button></div>
+<body>
+<div id='glob'>
+  <div id='croix'><button id='croixbtn' onclick='resp2()'> <div id='x'>x</div> </button></div>
+   <div id='trait'></div>
+  <div id='IMC'><button id='bouttonimc' onclick= 'case1()'>IMC</button></div>
+  <div id='trait'></div>
+  <div id='themepoids'><button id='suivrePoids' onclick='case2()'>Suivre son poids</button></div>
+  <div id='trait'></div>
+  <div id='rien1'></div>
+  <div id='trait2'></div>
+  <div id='rien1'></div>
+  <div id='trait2'></div>
+  <div id='rien1'></div>
+</div></div></body>
+<br>
+<br>
+
+
+
+<header>
+<form id='inscription'>
+<label> PRENOM <i>(facultatif)</i>: </label>
+<input type='pseudo' id='nom' placeholder='Votre prénom' maxlength='15'>
+<div id='avnom'></div>
+<br>
+<form>
+<label> SEXE: </label><br>
+<select id="sexe">
+		<option>Homme</option> 
+		<option>Femme</option> 
+	</select>
+	<br>
+<br>
+<form>
+<label> AGE: </label><br>
+<input type='number' id='age' placeholder='Votre age' required message = 'Donner votre age' required>
+<div id='avage'></div>
+<br>
+<form>
+<label> TAILLE: <i>(cm)</i> </label><br>
+<input type='number' id='taille' placeholder='Votre taille' required>
+<div id='avtaille'></div>
+<form>
+<br>
+<label> POIDS: <i>(kg)</i> </label><br>
+<input type='number' id='poids' placeholder='Votre poids' required>
+<div id='avpoids'></div>
+<br>
+<input type='submit' value='GO' id='ajouter'></form>
+</header>
+
+
+<foot id='foot' style='display:none'>
+  <h2 id='imc'></h2>
+<table id='tableaupoids'>
+ <tr>
+ 	<td id='thead'> IMC </td>
+ 	<td id='thead'> Interpretation </td>
+  </tr>
+ <tr>
+ 	<td id='obmor'> + de 40</td>
+ 	<td id='obmor2'> obésité morbide</td>
+  </tr>
+ <tr>
+ 	<td id='obsev'> 35 à 40</td>
+ 	<td id='obsev2'> obésité sévère</td>
+  </tr>
+ <tr>
+ 	<td id='obmod'> 30 à 35</td>
+ 	<td id='obmod2'> obésité modérée</td>
+ </tr>
+ <tr>
+ 	<td id='surp'> 25 à 30</td>
+ 	<td id='surp2'> surpoids</td>
+  </tr>
+ <tr>
+ 	<td id='norm'> 18.5 à 25</td>
+ 	<td id='norm2'> corpulence normale</td>
+  </tr>
+ <tr>
+ 	<td id='maig'> 16.5 à 18.5</td>
+ 	<td id='maig2'> maigreur</td>
+ </tr>
+ <tr>
+ 	<td id='fam'> - de 16.5</td>
+ 	<td id='fam2'> maigreur élevée</td>
+ </tr>
+ <hr>
+</table>
+<h3 id='sav'> Bon à savoir</h3>
+<div id='savcont'>
+<ul>
+  <li> <b>L'IMC</b> permet de déterminer la corpulence d'une personne</li> <br>
+  <li> <b>La même formule</b> est utilisée pour le calcul de <b> l'IMC de la femme et de l'homme.</b> </li>
+    <br>
+  <li> L'organisation Mondiale de la santé (OMS) a défini cet <b>Indice de Masse Corporelle</b> comme le standard pour évaluer les risques liés au surpoids.</li>
+</ul>
+</div>
+</foot>
+
+
+
+
+<aside id='article' style='display:none'>
+<h2 id='spoidse'> Suivre son poids </h2>
+<div id='traito'></div>
+ <div  id='enterpoids'> 
+  <form>
+    <label id='choixjour'>Entrez votre poids d'aujourd'hui: </label>
+      <input type='number' id='spoidform'>
+    </form>
+      <button id='validepoids' onclick='addpoids()'>VALIDER</button>
+    </div>
+    <br>
+    <br>
+<div id='blockper'>
+<div><button class='periode' id='semaine' onclick='semaine()'>Consulter les poids de cette semaine</button>
+<article id='weekshow' style='display: none'><br>
+  <li> Lundi:</li><div id='weeklundi'></div><br>
+  <li> Mardi:</li><div id='weekmardi'></div><br>
+  <li> Mercredi:</li><div id='weekmercredi'></div><br>
+  <li> Jeudi:</li><div id='weekjeudi'></div><br>
+  <li> Vendredi:</li><div id='weekvendredi'></div><br>
+  <li> Samedi: </li><div id='weeksamedi'></div><br>
+  <li> Dimanche:</li><div id='weekdimanche' ></div><br>
+  </article></div>
+<div><button class='periode' id='mois' onclick='mois()'> Consulter les poids de ce mois-ci </button></div>
+<article id='monthshow' style='display: none'>
+  <li> Lundi:</li>
+  <li> Mardi:</li>
+  <li> Mercredi:</li>
+  <li> Jeudi:</li>
+  <li> Vendredi:</li>
+  <li> Samedi: </li>
+  <li> Dimanche:</li>
+  </article>
+</aside>
+
+
+<script>
+var inscription = document.getElementById('inscription').addEventListener('submit',function(e){
+	e.preventDefault()
+var nom = document.getElementById('nom')
+var age = document.getElementById('age')
+var poids = document.getElementById('poids')
+var taille = document.getElementById('taille')
+var avnom = document.getElementById('avnom')
+var avage = document.getElementById('avage')
+var avtaille = document.getElementById('avtaille')
+var avpoids = document.getElementById('avpoids')
+var imcrange = document.getElementById('imcrange')
+var firstpart = document.getElementsByTagName('header')[0]
+var obmor = document.getElementById('obmor')
+var obmor2 = document.getElementById('obmor2')
+var obsev = document.getElementById('obsev')
+var obsev2 = document.getElementById('obsev2')
+var obmod = document.getElementById('obmod')
+var obmod2 = document.getElementById('obmod2')
+var surp = document.getElementById('surp')
+var surp2 = document.getElementById('surp2')
+var norm = document.getElementById('norm')
+var norm2 = document.getElementById('norm2')
+var maig = document.getElementById('maig')
+var maig2 = document.getElementById('maig2')
+var fam = document.getElementById('fam')
+var fam2 = document.getElementById('fam2')
+  function tableau(prénom, sexe, age, taille, poids, imc) {
+    this.prénom = prénom
+    this.sexe = sexe
+    this.age = age
+    this.taille = taille
+    this.poids = poids
+    this.imc = imc
+  }
+
+
+
+
+  if (nom.value == '') {
+  	avnom.innerHTML = ''
+
+} else if (isNaN(nom.value) === false){
+  	avnom.innerHTML = 'Veuillez utilisez que des lettres'
+  	avnom.style.color = 'red'
+} else if(isNaN(nom.value)) {
+	avnom.innerHTML = ''
+} if (age.value > 120 || age.value <= 0){
+	avage.innerHTML = 'Veuillez rentrez un age entre 1 et 120'
+	avage.style.color = 'red'
+} else {
+	avage.innerHTML = ''
+
+
+} if (poids.value > 400 || poids.value <= 3) {
+    avpoids.innerHTML = 'Veuillez rentrer un poids compris entre 4 et 400kg'
+    avpoids.style.color = 'red'
+  firstpart.style.height = '420'
+
+} else {
+	avpoids.innerHTML = ''
+} if (taille.value > 230 || taille.value < 50){
+	avtaille.innerHTML = 'Veuillez rentrer une taille comprise entre 50 et 230cm'
+	avtaille.style.color = 'red'
+} else {
+  avtaille.innerHTML = ''
+
+
+
+} if (isNaN(nom.value) && age.value <= 120 && age.value >= 1 && poids.value <= 399  && poids.value > 3 && taille.value <= 230 && taille.value >= 50
+	|| nom.value == '' && age.value <= 120 && age.value >= 1 && poids.value <= 400  && poids.value > 3 && taille.value <= 230 && taille.value >= 50) {
+  var utilisateur = new tableau(nom.value, sexe.value, age.value, taille.value, poids.value)
+  console.log(utilisateur)
+    firstpart.style.display = 'none'
+    var deuzpart = document.getElementById('foot')
+    deuzpart.style.display = 'block'
+    deuzpart.style.transform = 'translate(0px,0px)'
+    calculTailleM = taille.value / 100
+    calculTailleCarre = calculTailleM * calculTailleM
+    calculimc = poids.value / calculTailleCarre
+    var calculimcfin = Math.round(calculimc)
+    var utilisateur = new tableau(nom.value, sexe.value, age.value, taille.value, poids.value, calculimc)
+    var imc = document.getElementById('imc')
+    imc.innerHTML = 'VOTRE IMC EST DE :' + ' ' + calculimcfin
+} if (calculimcfin >= 40) {
+    obmor.style.backgroundColor = 'purple'
+    obmor2.style.backgroundColor = 'purple'
+    imc.style.color = 'purple'
+    imc.style.border = '2px dotted black'
+    imc.style.width = '225px'
+} else if (calculimcfin >= 35 && calculimcfin < 40) {
+	obsev.style.backgroundColor = 'red'
+    obsev2.style.backgroundColor = 'red'
+    imc.style.color = 'red'
+     imc.style.border = '2px dotted black'
+     imc.style.width = '225px'
+} else if (calculimcfin >= 30 && calculimcfin <35) {
+	obmod.style.backgroundColor = 'orange'
+    obmod2.style.backgroundColor = 'orange'
+    imc.style.color = 'orange'
+     imc.style.border = '2px dotted black'
+     imc.style.width = '225px'
+} else if (calculimcfin >= 25 && calculimcfin < 30) {
+    surp.style.backgroundColor = '#FFBF00'
+    surp2.style.backgroundColor = '#FFBF00'
+    imc.style.color = '#FFBF00'
+     imc.style.border = '2px dotted black'
+     imc.style.width = '225px'
+} else if (calculimcfin >= 18.5 && calculimcfin < 25) {
+	norm.style.backgroundColor = '#64FE2E'
+    norm2.style.backgroundColor = '#64FE2E'
+    imc.style.color = '#64FE2E'
+     imc.style.border = '2px dotted black'
+     imc.style.width = '225px'
+} else if (calculimcfin >= 16.5 && calculimcfin < 18.5) {
+	maig.style.backgroundColor = '#58D3F7'
+    maig2.style.backgroundColor = '#58D3F7'
+    imc.style.color = '#58D3F7'
+     imc.style.border = '2px dotted black'
+     imc.style.width = '225px'
+} else if (calculimcfin < 16.5) {
+	fam.style.backgroundColor = 'blue'
+    fam2.style.backgroundColor = 'blue'
+    imc.style.color = 'blue'
+     imc.style.border = '2px dotted black'
+     imc.style.width = '225px'
+}
+})
+function resp(){
+  var titre = document.getElementById('titre')
+  var firstpart = document.getElementsByTagName('header')[0]
+  var glob = document.getElementById('glob')
+  var imc = document.getElementById('IMC')
+  var themepoids = document.getElementById('themepoids')
+  var suivrePoids = document.getElementById('article')
+  var titreimc = document.getElementById('titreimc')
+  var soulignetitle = document.getElementById('soulignetitle')
+  var deuzpart = document.getElementById('foot')
+  var traito = document.getElementById('traito')
+  var spoidse = document.getElementById('spoidse')
+  firstpart.style.transform = 'translate(100px,0px)'
+  titre.style.transform = 'translate(100px,0px)'
+  titre.style.transition = 'all 0.2s'
+  firstpart.style.transition = 'all 0.2s'
+  glob.style.display = 'flex'
+  deuzpart.style.transform = 'translate(220px,0px)'
+  deuzpart.style.transition = 'all 0.2s'
+  suivrePoids.style.transform = 'translate(150px,0px)'
+  suivrePoids.style.transition = 'all 0.2s'
+  traito.style.width = '300px'
+  spoidse.style.borderBottom = 'none'
+
+}
+  function resp2(){
+  var x = document.getElementById('croixbtn')
+  var glob = document.getElementById('glob')
+  var titre = document.getElementById('titre')
+  var firstpart = document.getElementsByTagName('header')[0]
+  var deuzpart = document.getElementById('foot')
+  var suivrePoids = document.getElementById('article')
+  var spoidse = document.getElementById('spoidse')
+  glob.style.display = 'none'
+  glob.style.transition = 'all 0.5s'
+  firstpart.style.transform = 'translate(0px,0px)'
+  titre.style.transform = 'translate(0px,0px)'
+  titre.style.transition = 'all 0.2s'
+  firstpart.style.transition = 'all 0.2s'
+  deuzpart.style.transform = 'translate(0px,0px)'
+  suivrePoids.style.transform = 'translate(0px,0px)'
+  suivrePoids.style.transition = 'all 0.2s'
+  spoidse.style.borderBottom = '2px orange solid'
+
+
+  }
+  function case1(){
+    var click1 = document.getElementById('IMC')
+    var firstpart = document.getElementsByTagName('header')[0]
+     var deuzpart = document.getElementById('foot')
+     var glob = document.getElementById('glob')
+     var suivrePoids = document.getElementById('article')
+     var titre = document.getElementById('titre')
+    firstpart.style.display = 'block'
+    firstpart.style.transform = 'translate(0px,0px)'
+    deuzpart.style.display = 'none'
+    glob.style.display = 'none'
+    glob.style.transition = 'all 0.5s'
+    suivrePoids.style.display = 'none'
+    titre.style.transform = 'translate(0px,0px)'
+  }
+  function case2(){
+    var click1 = document.getElementById('IMC')
+    var firstpart = document.getElementsByTagName('header')[0]
+     var deuzpart = document.getElementById('foot')
+     var glob = document.getElementById('glob')
+     var suivrePoids = document.getElementById('article')
+     var titre = document.getElementById('titre')
+     var spoidse = document.getElementById('spoidse')
+    firstpart.style.display = 'none'
+    firstpart.style.transform = 'translate(0px,0px)'
+    deuzpart.style.display = 'none'
+    glob.style.display = 'none'
+    glob.style.transition = 'all 0.5s'
+    suivrePoids.style.display = 'block'
+    suivrePoids.style.transform = 'translate(0px,0px)'
+    titre.style.transform = 'translate(0px,0px)'
+    spoidse.style.borderBottom = '2px orange solid'
+
+  }
+  function addpoids() {
+  var firstpart = document.getElementsByTagName('header')[0]
+  var deuzpart = document.getElementById('foot')
+  var suivrePoids = document.getElementById('article')
+  var enterpoids = document.getElementById('spoidform')
+  var label = document.getElementById('choixjour')
+  var poidsform2 = document.getElementById('enterpoids')
+  var validepoids = document.getElementById('validepoids')
+  var weeklundi = document.getElementById('weeklundi')
+  var weekmardi = document.getElementById('weekmardi')
+  var weekmercredi = document.getElementById('weekmercredi')
+  var weekjeudi = document.getElementById('weekjeudi')
+  var weekvendredi = document.getElementById('weekvendredi')
+  var weeksamedi = document.getElementById('weeksamedi')
+  var weekdimanche = document.getElementById('weekdimanche')
+  var date = new Date()
+  var day = date.getDay()
+
+  if(day == 0) {
+    weekdimanche.innerHTML = enterpoids.value + 'kg'
+    validepoids.style.display = 'none'
+    enterpoids.style.display = 'none'
+    label.innerHTML = 'Veuillez attendre demain pour rentrer une nouvelle valeur'
+    label.style.color = 'red'
+    label.style.fontStyle = 'italic'
+    label.style.fontSize = '25px'
+  }
+  else if(day == 1) {
+    weeklundi.innerHTML = enterpoids.value + 'kg'
+    validepoids.style.display = 'none'
+    enterpoids.style.display = 'none'
+    label.innerHTML = 'Veuillez attendre demain pour rentrer une nouvelle valeur'
+    label.style.color = 'red'
+    label.style.fontStyle = 'italic'
+    label.style.fontSize = '25px'
+ }
+
+  else if(day == 2) {
+    weekmardi.innerHTML = enterpoids.value + 'kg'
+    validepoids.style.display = 'none'
+    enterpoids.style.display = 'none'
+    label.innerHTML = 'Veuillez attendre demain pour rentrer une nouvelle valeur'
+    label.style.color = 'red'
+    label.style.fontStyle = 'italic'
+    label.style.fontSize = '25px'
+   }
+
+  else if(day == 3) {
+    weekmercredi.innerHTML = enterpoids.value + 'kg'
+    validepoids.style.display = 'none'
+    enterpoids.style.display = 'none'
+    label.innerHTML = 'Veuillez attendre demain pour rentrer une nouvelle valeur'
+    label.style.color = 'red'
+    label.style.fontStyle = 'italic'
+    label.style.fontSize = '25px'
+ }
+
+  else if(day == 4) {
+    weekjeudi.innerHTML = enterpoids.value + 'kg'
+    validepoids.style.display = 'none'
+    enterpoids.style.display = 'none'
+    label.innerHTML = 'Veuillez attendre demain pour rentrer une nouvelle valeur'
+    label.style.color = 'red'
+    label.style.fontStyle = 'italic'
+    label.style.fontSize = '25px'
+ }
+  else if(day == 5) {
+    weekvendredi.innerHTML = enterpoids.value + 'kg'
+    validepoids.style.display = 'none'
+    enterpoids.style.display = 'none'
+    label.innerHTML = 'Veuillez attendre demain pour rentrer une nouvelle valeur'
+    label.style.color = 'red'
+    label.style.fontStyle = 'italic'
+    label.style.fontSize = '25px'
+  }
+  else if(day == 6) {
+    weeksamedi.innerHTML = enterpoids.value + 'kg'
+    validepoids.style.display = 'none'
+    enterpoids.style.display = 'none'
+    label.innerHTML = 'Veuillez attendre demain pour rentrer une nouvelle valeur'
+    label.style.color = 'red'
+    label.style.fontStyle = 'italic'
+    label.style.fontSize = '25px'
+}
+}
+  function semaine() {
+  var enterpoids = document.getElementById('spoidform')
+  var weekshow = document.getElementById('weekshow')
+  var date = new Date()
+  var day = date.getDay()
+  var hour = date.getHours()
+  console.log(day)
+  console.log(hour)
+  var jour = document.getElementById('choixjour') 
+  weekshow.style.display = 'block'  
+}
+
+
+</script>

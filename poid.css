@@ -1,0 +1,228 @@
+body{
+	background-color: #A4A4A4;
+}
+#title {
+	background-color: black;
+	height: 70px;
+	margin: 0px;
+	border: 1px black dotted;
+}
+#titre {
+	color: red;
+	border: 2px groove black;
+	width: 240px;
+	text-align: center;
+	margin-left: 210px;
+	font-family: 'arial';
+	background-color: yellow;
+	position: absolute;
+	top: -2px;
+
+}
+span {
+	color:blue;
+	font-style: italic;
+	font-family: 'arial';
+	font-size: 25px;
+}
+input{
+	margin-left: 10px
+}
+select{
+	margin-left: 10px
+}
+form {
+	margin-left : 20px;
+}
+header {
+	border: 1px solid maroon;
+	width: 250px;
+	margin-left: 50px;
+	background-color: #585858;
+	font-family: 'arial';
+	height: 350px;
+	padding-top: 20px;
+	position: absolute;
+	left: 80px;
+	top: 100px;
+}
+#ajouter {
+	font-size: 15px;
+	margin-left: 65px;
+}
+td {
+  border: 2px groove blue;
+  padding-left: 15px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 300px;
+  color: black;
+  height: 300px;
+  position: absolute;
+}
+#thead{
+	color: blue;
+	font-weight: bold;
+
+}
+input:hover {
+    border-radius: 5px;
+    background-color: lightgrey;
+    transition: all 0.2s linear;
+
+}
+#sav {
+    font-family : sans-serif;   
+    color : #1C1C1C;
+    margin-left : 10px;
+    position: absolute;
+    top: 400px;
+    border-bottom: 2px orange solid;
+}
+ul {
+	list-style: square;
+} 
+#savcont {
+	position: absolute;
+	top: 440px;
+}
+
+img{
+	height: 35px;
+	position: relative;
+	top: -2px;
+	right: 7px;
+}
+#bout {
+	height: 35px;
+	width: 35px;
+	position: absolute;
+	top: 22px;
+	right: 35px;
+}
+#bout:hover {
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+#glob {
+background-color: #0080FF;
+ display: none;
+ flex-direction: column;
+ width: 200px;
+ height: 600px;
+ transition: all 0.5s;
+
+}
+#IMC {
+	text-align: center;
+	font-size: 30px;
+	padding: 0px;
+	font-family: sans-serif;
+	background-color: #0080FF;
+
+}
+#themepoids {
+	text-align: center;
+	font-size: 20px;
+	font-family: sans-serif;
+	background-color: #0080FF;
+
+} #trait {
+	height: 2px;
+	width: 200px;
+	background-color: black;
+
+}
+#bouttonimc {
+	background-color: #0080FF;
+	border:none;
+	font-size: 20px;
+    padding: 40px;
+	width: 200px;
+} #bouttonimc:hover {
+	background-color: blue;
+	cursor: pointer;
+}
+#suivrePoids{
+	background-color: #0080FF;
+	border:none;
+	font-size: 20px;
+    padding: 40px;
+	width: 200px;
+} #suivrePoids:hover {
+	background-color: blue;
+	cursor: pointer;
+}
+#rien1 {
+	padding: 50px;
+}
+#trait2 {
+	height: 2px;
+	width: 200px;
+	background-color: black;
+	opacity: 10%;
+}
+#boutx {
+	height: 35px;
+	width: 35px;
+	position: absolute;
+	top: 22px;
+	right: 35px;
+}
+#boutx:hover {
+	cursor: pointer;
+}
+#croix {
+	padding: 0px;
+	text-align:center;
+}
+#croixbtn {
+	background-color: #0080FF;
+	border-radius: 10px;
+    size: 30px;
+    margin: 20px;
+} #croixbtn:hover {
+	background-color: red;
+	cursor:pointer;
+}
+#spoidse {
+	font-size: 40px;
+	text-align: center;
+	margin-top: 50px;
+}
+#spoidform {
+	border: 3px orange solid;
+}
+#blockper {
+	display: flex;
+	justify-content: space-around;
+
+}
+#enterpoids {
+	display: flex;
+	justify-content: center;
+	border: 2px orange;
+}
+#validepoids {
+	height: 25px;
+	margin-left: 10px;
+}
+#x {
+	font-size: 18px;
+}
+#imc {
+	background-color: #A4A4A4;
+	border: 0px black solid;
+}
